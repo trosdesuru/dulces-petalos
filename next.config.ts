@@ -1,8 +1,18 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   reactCompiler: true,
+  // TypedRoutes Habilitar las rutas tipadas
+  typedRoutes: true,
+  // Configuración de imágenes remotas
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'dulces-petalos.jakala.es',
+      },
+    ],
+  },
 };
 
 export default nextConfig;
