@@ -17,3 +17,20 @@ export const getProducts = async (): Promise<Product[]> => {
         return []
     }
 }
+
+export const getProductById = async (id: string): Promise<Product | null> => {
+    try {
+        const response = await fetch(`${API_URL}/${id}`)
+
+        if (!response.ok) {
+            return null
+        }
+
+        const data = await response.json()
+        return data
+    } catch (error) {
+        console.error(`Error fetching product ${id}:`, error)
+
+        return null
+    }
+}

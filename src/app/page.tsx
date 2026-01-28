@@ -1,21 +1,21 @@
 import { getProducts } from '@/lib/api'
-import { get } from 'http'
+import { ProductGrid } from '@/components/feature/ProductGrid'
 
 export default async function Home() {
-
   const products = await getProducts()
 
   return (
-    <main className='p-8'>
-      <h1 className='text-2xl font-bold mb-4'>Floristería Dulces Pétalos</h1>
+    <main className='container mx-auto px-4 py-8 min-h-screen'>
+      <header className='mb-8 text-center sm:text-left'>
+        <h1 className='text-3xl sm:text-4xl font-bold text-gray-800 mb-2'>
+          Dulces Pétalos 🌺
+        </h1>
+        <p className='text-gray-600'>
+          Descubre nuestra selección de flores frescas
+        </p>
+      </header>
 
-      <pre className='bg-gray-100 p-4 rounded text-xs overflow-auto'>
-        {JSON.stringify(products, null, 2)}
-      </pre>
-
-      <p className='mt-4 text-gray-600'>
-        Productos cargados: {products.length}
-      </p>
+      <ProductGrid products={products} />
     </main>
   )
 }
