@@ -3,7 +3,7 @@ export interface Product {
     name: string
     binomialName: string
     price: number
-    image: string
+    imgUrl: string
     wateringsPerWeek: number
     fertilizerType: string
     heighInCm: number
