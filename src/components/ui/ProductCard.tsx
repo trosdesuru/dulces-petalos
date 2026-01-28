@@ -19,12 +19,13 @@ export function ProductCard({ product }: ProductCardProps) {
         >
             <div className='relative aspect-4/3 w-full overflow-hidden bg-gray-100'>
                 <Image
-                    src={product.image}
+                    src={product.imgUrl}
                     alt={product.name}
                     fill
                     sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                     className='object-cover group-hover:scale-105 transition-transform duration-500'
                     priority={false}
+                    unoptimized={false}
                 />
             </div>
 
