@@ -1,4 +1,4 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
@@ -10,9 +10,11 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'dulces-petalos.jakala.es',
+        port: '',
+        pathname: '/images/**'
       },
     ],
   },
-};
+}
 
-export default nextConfig;
+export default nextConfig
