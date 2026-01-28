@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
-  // TypedRoutes Habilitar las rutas tipadas
+  // TypedRoutes para Habilitar las rutas tipadas
   typedRoutes: true,
   // Configuración de imágenes remotas
   images: {
