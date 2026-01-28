@@ -39,9 +39,11 @@ Se ha configurado **Jest** + **React Testing Library** para asegurar la calidad.
    ```bash
    npm install
 2. Ejecutar el servidor de desarrollo:
-    ```npm run dev
+    ```bash
+    npm run dev
 3. Ejecutar los tests:
-    ```npm run test
+    ```bash
+    npm run test
 📂 Estructura del Proyecto
 src/
 ├── app/                 # Next.js App Router (Páginas)
