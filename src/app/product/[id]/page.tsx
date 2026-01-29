@@ -7,7 +7,7 @@ interface PageProps {
     params: Promise<{ id: string }>
 }
 
-// Metadata Dinámica
+// // Generar metadatos dinámicos para SEO
 export async function generateMetadata({ params }: PageProps) {
     const { id } = await params
     const product = await getProductById(id)
@@ -24,10 +24,10 @@ export default async function ProductPage({ params }: PageProps) {
     // Desempaquetamos los params
     const { id } = await params
 
-    // Fetch de datos usando el servicio
+    // Fetch de datos usando el servicio getProductById
     const product = await getProductById(id)
 
-    // Validación: Si no hay producto dispara la página 404
+    // // Disparar pantalla error 404 si el producto no existe
     if (!product) {
         notFound()
     }

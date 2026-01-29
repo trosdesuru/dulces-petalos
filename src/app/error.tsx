@@ -2,15 +2,12 @@
 
 import { useEffect } from 'react'
 
-export default function Error({
-    error,
-    reset,
-}: {
+export default function Error({ error, reset, }: {
     error: Error & { digest?: string }
     reset: () => void
 }) {
     useEffect(() => {
-        // Aquí podrías enviar el error a un servicio de logging (Sentry, etc.)
+        // Capturar el error para logging
         console.error('Error capturado en boundary:', error)
     }, [error])
 

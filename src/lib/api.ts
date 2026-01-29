@@ -13,6 +13,7 @@ export const getProducts = async (): Promise<Product[]> => {
 
         return data
     } catch (error) {
+        // Registrar el error para la depuración
         console.error(error)
         return []
     }
@@ -30,7 +31,7 @@ export const getProductById = async (id: string): Promise<Product | null> => {
         return data
     } catch (error) {
         console.error(`Error fetching product ${id}:`, error)
-
+        // Retornar null para permitir gestión de 404 en la UI
         return null
     }
 }

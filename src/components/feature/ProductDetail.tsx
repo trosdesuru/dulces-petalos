@@ -18,7 +18,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
     return (
         <div className='max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden animate-in fade-in zoom-in duration-300'>
             <div className='md:flex'>
-                {/* Columna Imagen */}
+                {/* Contenedor de imagen */}
                 <div className='md:w-1/2 relative aspect-square md:aspect-auto h-64 md:h-auto bg-gray-100'>
                     {image ? (
                         <Image
@@ -26,7 +26,8 @@ export function ProductDetail({ product }: ProductDetailProps) {
                             alt={product.name}
                             fill
                             className='object-cover'
-                            priority // Prioridad alta porque es la imagen principal
+                            // Optimizar carga de imagen principal para mejorar métrica LCP
+                            priority
                             sizes='(max-width: 768px) 100vw, 50vw'
                         />
                     ) : (
@@ -36,7 +37,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
                     )}
                 </div>
 
-                {/* Columna Info */}
+                {/* Información detallada */}
                 <div className='p-8 md:w-1/2 flex flex-col justify-center'>
                     <div className='uppercase tracking-wide text-sm text-indigo-500 font-semibold mb-1'>
                         Detalle de flor
@@ -59,7 +60,6 @@ export function ProductDetail({ product }: ProductDetailProps) {
                 </div>
             </div>
 
-            {/* Botón Volver (Requisito explícito del PDF) */}
             <div className='bg-gray-50 px-8 py-4 border-t border-gray-100'>
                 <Link
                     href='/'
