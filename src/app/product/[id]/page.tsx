@@ -33,11 +33,25 @@ export default async function ProductPage({ params }: PageProps) {
     }
 
     return (
-        <main className={clsx('min-h-screen',
-            'bg-gray-50 py-12',
-            'px-4 sm:px-6 lg:px-8',
-            'flex items-center justify-center')}>
-            <ProductDetail product={product} />
+        <main
+            className={clsx(
+                'w-full min-h-[calc(100vh-var(--spacing-header-height))]',
+                'flex justify-center',
+                'pt-12 pb-12'
+            )}
+        >
+
+            <div
+                className={clsx(
+                    'w-full max-w-300',
+                    'px-4 md:px-6'
+                )}
+                style={{
+                    maxHeight: '905px'
+                }}
+            >
+                <ProductDetail product={product} />
+            </div>
         </main>
     )
 }
