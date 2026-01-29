@@ -16,7 +16,7 @@ const mockProduct: Product = {
 }
 
 describe('ProductCard Component', () => {
-    it('debe renderizar la información del producto correctamente', () => {
+    it('Renderizar la información del producto correctamente', () => {
         render(<ProductCard product={mockProduct} />)
 
         // Verificar presencia de datos críticos
@@ -24,7 +24,7 @@ describe('ProductCard Component', () => {
         expect(screen.getByText(/25,50/)).toBeInTheDocument()
     })
 
-    it('debe renderizar la imagen cuando imgUrl es válida', () => {
+    it('Renderizar la imagen cuando imgUrl es válida', () => {
         render(<ProductCard product={mockProduct} />)
 
         const image = screen.getByAltText('Orquídea Fantasma')
@@ -33,14 +33,15 @@ describe('ProductCard Component', () => {
         expect(image.getAttribute('src')).toContain('orquidea.jpg')
     })
 
-    it('debe mostrar el fallback (🌸) si no hay imagen disponible', () => {
+    it('Mostrar un fallback, la imagen del logo, si no hay imagen disponible', () => {
         // Simular escenario de error en datos
         const productWithoutImage = { ...mockProduct, imgUrl: '' }
 
         render(<ProductCard product={productWithoutImage} />)
 
-        // Validar renderizado de elemento alternativo
-        expect(screen.getByText('🌸')).toBeInTheDocument()
-        expect(screen.queryByRole('img')).not.toBeInTheDocument()
+        const fallbackImage = screen.getByAltText('Imagen no disponible')
+        // Validar renderizado de imagen de fallback
+        expect(fallbackImage).toBeInTheDocument()
+        expect(screen.queryByAltText('Orquídea Fantasma')).not.toBeInTheDocument()
     })
 })
