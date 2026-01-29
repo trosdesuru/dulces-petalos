@@ -25,16 +25,12 @@ export function ProductGrid({ products }: ProductGridProps) {
 
   return (
     <div className='space-y-8'>
-      {/* Visualizar estado del filtro */}
-      <div className='flex flex-col sm:flex-row justify-between items-center gap-4 bg-white p-4 rounded-lg shadow-sm'>
-        <h2 className='text-gray-600 font-medium'>
-          Mostrando {filteredProducts.length} productos
-        </h2>
+      <div className='flex flex-col'>
         <SearchBar value={searchTerm} onChange={setSearchTerm} />
       </div>
 
       {filteredProducts.length > 0 ? (
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-300 mx-auto'>
           {filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
