@@ -76,10 +76,11 @@ export function ProductDetail({ product }: ProductDetailProps) {
 
           <button
             className={clsx(
-              'w-full md:w-auto px-10 py-4 rounded-full',
-              'bg-accent-600 text-white font-bold text-lg',
+              'max-w-33.5 md:w-auto px-4 py-2 rounded-full',
+              'bg-accent-600 text-neutral-100 font-regular text-[14px]',
+              'whitespace-nowrap',
               'hover:opacity-90 transition-opacity shadow-sm',
-              'active:scale-95 duration-100'
+              'active:scale-95 duration-100 cursor-not-allowed'
             )}
           >
             Añadir al carrito
