@@ -4,7 +4,7 @@ import Flor from '../../../public/assets/Flor.svg'
 import Image from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
-import { IconArrowRight, IconArrowUpRight, IconArrowWaveRightUp } from '@tabler/icons-react'
+import { IconArrowUpRight } from '@tabler/icons-react'
 
 interface ProductCardProps {
   product: Product
