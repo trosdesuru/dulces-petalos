@@ -9,16 +9,23 @@ interface ProductDetailProps {
   product: Product
 }
 
+const FERTILIZER_LABELS: Record<Product['fertilizerType'], string> = {
+  nitrogen: 'nitrógeno',
+  phosphorus: 'fósforo',
+}
+
 export function ProductDetail({ product }: ProductDetailProps) {
   const formattedPrice = new Intl.NumberFormat('es-ES', {
     style: 'currency',
     currency: 'EUR',
   }).format(product.price)
 
+  const fertilizer = FERTILIZER_LABELS[product.fertilizerType] || product.fertilizerType || 'sin información'
+
   return (
     <div className="animate-in fade-in duration-500 h-full">
-      <nav className="mb-6 flex items-center gap-2 text-sm text-neutral-800">
-        <Link href="/" className="hover:text-gray-900 transition-colors">
+      <nav className="mb-12 flex items-center gap-1 text-base text-neutral-800">
+        <Link href="/" className="hover:text-neutral-1000 transition-colors">
           Inicio
         </Link>
         <IconChevronRight size={24} color="currentColor" />
@@ -48,7 +55,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
           )}
         </div>
 
-        <div className="flex flex-col md:col-span-7 h-full justify-center">
+        <div className="flex flex-col md:col-span-7 h-full justify-start">
 
           <h1 className="text-4xl md:text-5xl font-bold text-neutral-1000 mb-2 font-nunito">
             {product.name}
@@ -58,7 +65,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
             {product.binomialName}
           </p>
 
-          <h4 className="text-[28px] font-bold text-neutral-1000 mb-8 font-dm-sans">
+          <h4 className="text-[28px] font-bold text-neutral-1000 mb-6 font-dm-sans">
             {formattedPrice}
           </h4>
 
@@ -70,7 +77,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
 
             <div className="flex items-center gap-3">
               <span className="text-gray-400">•</span>
-              <span>Fertilizar con {product.fertilizerType}</span>
+              <span>Fertilizar con {fertilizer}</span>
             </div>
           </div>
 
