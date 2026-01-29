@@ -1,3 +1,6 @@
+import { IconSearch } from "@tabler/icons-react"
+import clsx from "clsx"
+
 interface SearchBarProps {
     value: string
     onChange: (value: string) => void
@@ -5,27 +8,30 @@ interface SearchBarProps {
 
 export function SearchBar({ value, onChange }: SearchBarProps) {
     return (
-        <div className='relative w-full max-w-md'>
+        <div className={clsx(
+            'relative',
+            'h-10 w-full xl:max-w-150',
+            'mx-auto'
+        )}
+        >
             <div className='absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none'>
-                <svg
-                    className='w-4 h-4 text-gray-500'
-                    aria-hidden='true'
-                    xmlns='http://www.w3.org/2000/svg'
-                    fill='none'
-                    viewBox='0 0 20 20'
-                >
-                    <path
-                        stroke='currentColor'
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                        strokeWidth='2'
-                        d='m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z'
-                    />
-                </svg>
+                <IconSearch
+                    style={
+                        { color: 'var(--color-neutral-500)' }
+                    }
+                />
             </div>
+
             <input
                 type='text'
-                className='block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow'
+                className={clsx(
+                    'block w-full h-full',
+                    'p-4 pl-10',
+                    'text-sm text-neutral-800',
+                    'border border-neutral-400 rounded-lg',
+                    'bg-gray-50 outline-none',
+                    'focus:ring-accent-600 focus:border-accent-600'
+                )}
                 placeholder='Buscar en nuestra tienda'
                 value={value}
                 onChange={(e) => onChange(e.target.value)}

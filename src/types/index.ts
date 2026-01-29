@@ -6,5 +6,5 @@ export interface Product {
     imgUrl: string
     wateringsPerWeek: number
     fertilizerType: string
-    heighInCm: number
+    heightInCm: number
 }

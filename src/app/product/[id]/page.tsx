@@ -2,12 +2,13 @@ import { getProductById } from '@/lib/api'
 import { ProductDetail } from '@/components/feature/ProductDetail'
 
 import { notFound } from 'next/navigation'
+import clsx from 'clsx'
 
 interface PageProps {
     params: Promise<{ id: string }>
 }
 
-// Metadata Dinámica
+// // Generar metadatos dinámicos para SEO
 export async function generateMetadata({ params }: PageProps) {
     const { id } = await params
     const product = await getProductById(id)
@@ -21,21 +22,36 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 export default async function ProductPage({ params }: PageProps) {
-    // Desempaquetamos los params
     const { id } = await params
 
-    // Fetch de datos usando el servicio
+    // Fetch de datos usando el servicio getProductById
     const product = await getProductById(id)
 
-    // Validación: Si no hay producto dispara la página 404
+    // // Disparar pantalla error 404 si el producto no existe
     if (!product) {
         notFound()
     }
 
-    // Renderizado usando el componente visual
     return (
-        <main className='min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center'>
-            <ProductDetail product={product} />
+        <main
+            className={clsx(
+                'w-full min-h-[calc(100vh-var(--spacing-header-height))]',
+                'flex justify-center',
+                'pt-12 pb-12'
+            )}
+        >
+
+            <div
+                className={clsx(
+                    'w-full max-w-300',
+                    'px-4 md:px-6'
+                )}
+                style={{
+                    maxHeight: '905px'
+                }}
+            >
+                <ProductDetail product={product} />
+            </div>
         </main>
     )
 }

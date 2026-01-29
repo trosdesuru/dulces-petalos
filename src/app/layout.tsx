@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { Nunito, DM_Sans } from 'next/font/google'
+
+import { Header } from '@/components/ui/Header'
 import './globals.css'
 
 const nunito = Nunito({
@@ -24,9 +26,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body
-        className={`${nunito.variable} ${DMSans.variable} antialiased`}
-      >
+      <body className={`${nunito.variable} ${DMSans.variable} antialiased`}>
+        <Header />
         {children}
       </body>
     </html>
