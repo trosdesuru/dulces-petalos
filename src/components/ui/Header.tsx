@@ -1,9 +1,10 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 export function Header() {
     return (
         <header
-            className='sticky top-0 z-50 w-full shadow-sm transition-all'
+            className='sticky top-0 z-50 w-full transition-all'
             style={{
                 backgroundColor: 'var(--color-neutral-100)',
                 height: 'var(--spacing-header-height)',
@@ -20,7 +21,15 @@ export function Header() {
                     className='hover:opacity-80 transition-opacity flex items-center justify-center'
                     aria-label='Volver al inicio'
                 >
-                    <span className='text-4xl leading-none select-none'>🌸</span>
+
+                    <div className='text-4xl leading-none cursor-pointer'>
+                        <Image
+                            src='../../assets/Flor.svg'
+                            width={50}
+                            height={50}
+                            alt='Logo de Dulces Petalos'
+                        />
+                    </div>
                 </Link>
             </div>
         </header>
