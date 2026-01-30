@@ -13,7 +13,7 @@ export default function NotFound() {
             </p>
             <Link
                 href='/'
-                className='px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors shadow-lg'
+                className='px-6 py-3 bg-accent-600 text-white rounded-lg font-medium hover:bg-accent-600/90 transition-colors shadow-lg'
             >
                 Volver al catálogo
             </Link>

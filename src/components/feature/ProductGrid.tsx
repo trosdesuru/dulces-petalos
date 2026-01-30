@@ -42,7 +42,7 @@ export function ProductGrid({ products }: ProductGridProps) {
           </p>
           <button
             onClick={() => setSearchTerm('')}
-            className='mt-4 text-blue-600 hover:underline'
+            className='mt-4 text-blue-600 hover:underline cursor-pointer'
           >
             Limpiar búsqueda
           </button>
